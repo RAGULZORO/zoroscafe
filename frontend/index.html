@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoro Cafe - RC Car Play Area</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (core SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">ZORO CAFE</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#rc-area" class="nav-link">RC Play Area</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#booking" class="nav-link">Book Now</a></li>
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Race. Relax. Repeat.</h1>
+            <p>Experience the thrill of RC racing while enjoying premium coffee at Zoro Cafe</p>
+            <div class="cta-buttons">
+                <a href="#booking" class="btn primary pulse">Book Track Time</a>
+                <a href="#menu" class="btn secondary">View Menu</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- RC Play Area Section -->
+    <section id="rc-area" class="section rc-area">
+        <div class="container">
+            <h2 class="section-title">RC Car Play Area</h2>
+            <div class="rc-grid">
+                <!-- RC Cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJMLtD_vwGuzbM5nH2K1CtW7d5SYroCQQmFw&s" alt="RC Track">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/best-rc-cars-007-6724f4a25cbf2.jpg?crop=0.735xw:0.978xh;0.142xw,0&resize=1200:*" alt="RC Cars">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://img.equipmentworld.com/files/base/randallreilly/all/image/2025/02/RCCities.67a66ead2ca60.png?auto=format%2Ccompress&fit=max&q=70&w=1200" alt="Safety Gear">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://storage.viory.video/thumbnails/a3030_08092024/DVGtB6MuJy5cn8CJ/large_DVGtB6MuJy5cn8CJ.jpg" alt="Cafe Area">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section menu">
+        <div class="container">
+            <h2 class="section-title">Cafe Menu</h2>
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-tab="drinks">Drinks</button>
+                <button class="tab-btn" data-tab="food">Food</button>
+                <button class="tab-btn" data-tab="combos">Combos</button>
+            </div>
+            <div class="menu-content">
+                <div class="tab-pane active" id="drinks">
+                    <!-- Drinks menu will be populated by JavaScript -->
+                </div>
+                <div class="tab-pane" id="food">
+                    <!-- Food menu will be populated by JavaScript -->
+                </div>
+                <div class="tab-pane" id="combos">
+                    <!-- Combos will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Session</h2>
+            <form class="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cars">RC Car Type</label>
+                        <select id="cars" required>
+                            <option value="">Select a car</option>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <select id="duration" required>
+                            <option value="30">30 minutes ($15)</option>
+                            <option value="60">1 hour ($25)</option>
+                            <option value="120">2 hours ($45)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="special-requests">Special Requests</label>
+                    <textarea id="special-requests" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn primary">Reserve Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-container">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hours</h3>
+                    <p>Monday-Friday: 7AM - 9PM</p>
+                    <p>Saturday-Sunday: 8AM - 10PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Location</h3>
+                    <p>123 Racing Avenue</p>
+                    <p>Speedville, SV 12345</p>
+                    <a href="#" class="map-link">View on Map</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@zorocafe.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Zoro Cafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
